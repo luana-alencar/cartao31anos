@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite de Hogwarts!</title>
+    <link href="https://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img_filme/favicon.png">
+
+    <audio id="hogwarts-theme" loop>
+        <source src="audio_filme/Harry_Potter_Theme_Song_Hedwigs_Theme.mp3" type="audio/mpeg">
+    </audio>
+
+    <style>
+        /* Aplica o ícone de varinha como cursor */
+        * {
+            cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ctext x="10" y="50" font-family="Arial" font-size="60" fill="black"%3E🪄%3C/text%3E%3C/svg%3E'), auto;
+        }
+
+        /* Estilos Mágicos */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Harry Potter', 'Times New Roman', serif;
+            background: #000 url('https://www.fatosdesconhecidos.com.br/wp-content/uploads/2020/07/hogwarts-lugares-nao-mostrados-nos-filmes-2048x924.jpg') no-repeat center fixed;
+            background-size: cover;
+            color: #f0e6d2;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        @font-face {
+            font-family: 'Harry Potter';
+            src: url('https://fonts.cdnfonts.com/css/harry-potter') format('woff');
+        }
+
+        /* Pergaminho de Login */
+        .login-box {
+            background: url('img_filme/convite.jpg') no-repeat center;
+            background-size: contain;
+            width: 90%;
+            max-width: 500px;
+            height: 400px;
+            margin: 50px auto;
+            padding-top: 200px;
+            padding-bottom: 250x;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+
+        .evelope-box {
+            background: url('img_filme/envelope.jpg') no-repeat center;
+            background-size: contain;
+            width: 90%;
+            max-width: 500px;
+            height: 400px;
+            margin: 50px auto;
+            padding-top: 200px;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .img-anima {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .img-anima2 {
+            display: block; /* Fundamental para imagens */
+            margin: 10px auto; /* Centraliza horizontalmente */
+            max-width: 100%; /* Garante responsividade */
+            transform: scale(0.9); /* Efeito opcional de zoom */
+            transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        #house-title {
+            transition: opacity 1s ease-in-out;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3); /* Melhora legibilidade */
+        }
+
+        /* Centralização garantida */
+        #house-description {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .img-anima2 {
+            display: block; /* Fundamental para imagens */
+            margin: 10px auto; /* Centraliza horizontalmente */
+            max-width: 100%; /* Garante responsividade */
+        }
+
+
+        #house-description p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #house-description strong {
+            color: inherit; /* Herda a cor do título */
+            font-size: 1.3em;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        h1 {
+            color: #d4af37;
+            text-shadow: 0 0 10px #7b2d26;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Quiz das Casas */
+        #quiz-container {
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .option-btn {
+            background: rgba(210, 180, 140, 0.3);
+            border: 2px solid #d4af37;
+            color: #f0e6d2;
+            padding: 10px;
+            transition: all 0.3s ease;
+            font-family: 'Harry Potter', serif;
+            border-radius: 5px;
+        }
+
+        .option-btn:hover {
+            background: rgba(123, 45, 38, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px #d4af37;
+        }
+
+        /* Input e Botão Mágico */
+        input {
+            background: rgba(210, 180, 140, 0.3);
+            border: 2px solid #d4af37;
+            color: #f0e6d2;
+            padding: 12px;
+            margin: 15px auto;
+            width: 35%;
+            font-family: 'Harry Potter', serif;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            background: rgba(255, 223, 128, 0.5);
+            border: 2px solid #d4af37;
+            color: #000;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+        }
+
+        button {
+            background: linear-gradient(to right, #7b2d26, #d4af37);
+            border: none;
+            color: #f0e6d2;
+            padding: 12px 30px;
+            font-family: 'Harry Potter', serif;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #d4af37;
+        }
+
+        /* Área Secreta (Sala Precisa) */
+        #secret-area {
+            display: none;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #d4af37;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px auto;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            border: 3px solid #7b2d26;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .photo-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #d4af37;
+        }
+
+        .message {
+            background: url('https://i.imgur.com/JYj5b7i.png') no-repeat center;
+            background-size: cover;
+            padding: 40px 20px;
+            margin: 20px auto;
+            color: #000;
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* Resultado do Quiz */
+        #quiz-result {
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #d4af37;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            margin: 30px auto;
+            overflow: hidden; /* Garante que a animação não vaze */
+            transition: opacity 0.5s ease-out; /* Para o container principal */
+        }
+
+        /* Efeitos Mágicos */
+        .floo-particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background-color: #d4af37;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.7;
+            animation: floo-float 8s linear infinite;
+            z-index: 100;
+        }
+
+        @keyframes floo-float {
+            0% { 
+                transform: translateY(0) translateX(0);
+                opacity: 0.3; 
+            }
+            10% { 
+                opacity: 0.7; 
+            }
+            90% { 
+                opacity: 0.7;
+            }
+            100% { 
+                transform: translateY(-100vh) translateX(20px);
+                opacity: 0; 
+            }
+        }
+
+        .golden-snitch {
+            position: absolute;
+            width: 115px;
+            z-index: 50;
+            animation: flutter 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes flutter {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            100% {
+                transform: scale(1.05) rotate(3deg);
+            }
+        }
+
+        .spark {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            background-color: #d4af37;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle 1s ease-out forwards;
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        /* Carrossel */
+        .carrossel-magico {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carrossel-container {
+            width: 80%;
+            max-width: 800px;
+            border: 3px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+            background: #0a0a20 url('img_filme/halloween.webp');
+            position: relative;
+        }
+        
+        .slide {
+            display: none;
+            text-align: center;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: aparecer 0.5s ease-in-out;
+        }
+        
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .slide img {
+            max-height: 60vh;
+            max-width: 100%;
+            border: 2px solid #7b2d26;
+            box-shadow: 0 0 20px #d4af37;
+        }
+        
+        .carrossel-botoes {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .fechar-carrossel {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            /* background: transparent; */
+            border: none;
+            width: 35px;
+            height: 35px;
+            padding: 0;
+            font-size: 18px;
+            color: #d3a625;
+            font-weight: bold;
+            z-index: 10;
+            display: flex;          /* Ativa Flexbox */
+            align-items: center;    /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+        }
+
+        .carrossel-container::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px solid #d4af37;
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0.5;
+            animation: pulsar 3s infinite;
+        }
+
+        @keyframes pulsar {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.02); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 0.5; }
+        }
+
+        /* Estilo para os botões de foto */
+        .botao-foto {
+            background: rgba(210, 180, 140, 0.3);
+            border: 2px solid #d4af37;
+            color: #f0e6d2;
+            padding: 20px;
+            transition: all 0.3s ease;
+            font-family: 'Harry Potter', serif;
+            border-radius: 5px;
+            font-size: 1rem;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .botao-foto:hover {
+            background: rgba(123, 45, 38, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #d4af37;
+        }
+
+        /* chapeu seletor */
+
+        #animated-hat {
+        width: 85px; /* Tamanho reduzido */
+        height: auto;
+        vertical-align: middle;
+        margin-right: 10px;
+        }
+        
+        .hat-animation {
+            animation: float-hat 2s ease-in-out infinite;
+        }
+        
+        /* Animação específica para o chapéu (nome único) */
+        @keyframes float-hat {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(2deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .sombra_legenda {
+            color: #fff;
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(20,20,20,0.2)); /* Transparência aumentada */
+            border-radius: 5px;
+            text-shadow: 1px 1px 2px #000;
+            font-size: 1.1rem;
+            backdrop-filter: blur(3px); /* Efeito de vidro fosco mais perceptível */
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+            font-weight: 500; /* Peso médio para melhor leitura */
+            margin: 0px;
+
+        }
+
+        @keyframes flutuar {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        
+        
+    </style>    
+</head>
+
+<body>
+    <!-- Tela de envelope -->
+    <div class="evelope-box" id="evelope-box" style="display: block;">
+        <button id="abrirConviteBtn" style="margin-top: 285px;" onclick="abrirConvite()">Abrir convite! 🦉</button>
+    </div>
+
+    <!-- Tela de Login -->
+    <div class="login-box" id="login-box" style="display: none; padding-bottom: 50px;">
+        <h1>✉️ CONVITE DE HOGWARTS ✉️</h1>
+        <p style="font-size: medium; color: #000000c3; margin-top: 10px; margin-bottom: 10px;">Para: Luana A. Rodrigues! 🧙‍♀️</p>
+        <p style="font-size: medium; color: #000000c3; margin-left: 30px; margin-right: 30px;">Digite a palavra secreta para acessar a celebração...</p>
+        <p style="font-size: medium; color: #000000c3; display: none;" id="dica"><small>(Dica: Expresso para o mundo da magia?)</small></p>
+        <input type="password" id="password" placeholder="Palavra Secreta...">
+        <button onclick="checkPassword()"><span style="font-size: 15px;">🪄</span> "Alohomora!" </button>
+    </div>
+
+    <!-- Quiz das Casas -->
+    <div id="quiz-container">
+        <h2><img src="img_filme/chapeu.png" alt="chapéu seletor" id="animated-hat" class="hat-animation">Antes de continuar, o Chapéu Seletor precisa saber...</h2>
+        <div id="quiz-questions">
+            <!-- Perguntas serão inseridas pelo JavaScript -->
+        </div>
+        <button id="submit-quiz" style="display:none;" onclick="showResult()">Descobrir minha casa!</button>
+    </div>
+
+    <!-- Resultado do Quiz -->
+    <div id="quiz-result" style="display:none;">
+        <h2 id="house-title">🏰 Casa de Hogwarts</h2>
+        <p id="house-description"></p>
+        <button onclick="enterSecretArea()">Entrar na Sala Precisa</button>
+    </div>
+
+    <!-- Área Secreta -->
+    <div id="secret-area">
+        <!-- Conteúdo será preenchido após o quiz -->
+    </div>
+
+    <!-- Golden Snitch -->
+    <img src="img_filme/gonlden_snitch_sem_bg.png" id="golden-snitch" class="golden-snitch" alt="Golden Snitch">
+
+    <!-- Carrossel Mágico -->
+    <div class="carrossel-magico">
+        <div class="carrossel-container">
+            <button class="fechar-carrossel"><span style="font-size: 18px; margin-top: 11px;">X</span></button>
+            
+            <div class="slide active">
+                <img src=""  alt="No Escritório de Dumbledore: Conselhos e Segredos" id="carrossel-img-1">
+                <div style="height: 0px;"></div>
+                <p id="carrossel-text-1" class="sombra_legenda" >No Escritório de Dumbledore: Conselhos e Segredos</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Hora do chá no Três Vassouras" id="carrossel-img-2">
+                <div style="height: 0px;"></div>
+                <p id="carrossel-text-2" class="sombra_legenda">Hora do chá no Três Vassouras</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Nossa varinha escolheu você" id="carrossel-img-3">
+                <div style="height: 0px;"></div>
+                <p id="carrossel-text-3" class="sombra_legenda">Nossa varinha escolheu você</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Casal de bruxos" id="carrossel-img-4">
+                <div style="height: 0px;"></div>
+                <p id="carrossel-text-4" class="sombra_legenda">Casal de bruxos</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Passeio pelo Beco Diagonal" id="carrossel-img-5">
+                <div style="height: 0px;"></div>
+                <p id="carrossel-text-5" class="sombra_legenda">Passeio pelo Beco Diagonal</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="A Única Prisioneira de Azkaban Que Eu Quero Ter no Meu Coração!" id="carrossel-img-6">
+                <div style="height: 0px;"></div>
+                <p id="carrossel-text-6" class="sombra_legenda">A Única Prisioneira de Azkaban Que Eu Quero Ter no Meu Coração!</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="O Chapéu Seletor Escolheu: FELICIDADE!!!" id="carrossel-img-7">
+                <div style="height: 0px;"></div>
+                <p id="carrossel-text-7" class="sombra_legenda">O Chapéu Seletor Escolheu: FELICIDADE!!!</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="O Cálice de Fogo... de Chocolate!" id="carrossel-img-8">
+                <div style="height: 0px;"></div>
+                <p id="carrossel-text-8" class="sombra_legenda">O Cálice de Fogo... de Chocolate!</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="A Pedra Filosofal do Nosso Casamento" id="carrossel-img-9">
+                <div style="height: 0px;"></div>
+                <p id="carrossel-text-9" class="sombra_legenda">A Pedra Filosofal do Nosso Casamento</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Quadribol em Família" id="carrossel-img-10">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-10" class="sombra_legenda">Quadribol em Família</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Voo de Vassoura Juntos" id="carrossel-img-11">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-11" class="sombra_legenda">Voo de Vassoura Juntos</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Nossa Poção do Amor" id="carrossel-img-12">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-12" class="sombra_legenda">Nossa Poção do Amor</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="O Dobby da Casa" id="carrossel-img-13">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-13" class="sombra_legenda">O Dobby da Casa</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Aula de Poções Românticas" id="carrossel-img-14">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-14" class="sombra_legenda">Aula de Poções Românticas</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Banquete em Hogwarts" id="carrossel-img-15">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-15" class="sombra_legenda">Banquete em Hogwarts</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Feitiço de Sorrisos" id="carrossel-img-16">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-16" class="sombra_legenda">Feitiço de Sorrisos</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="O Feitiço do Amor Eterno" id="carrossel-img-17">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-17" class="sombra_legenda">O Feitiço do Amor Eterno</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="A Quadribol do Dia a Dia" id="carrossel-img-18">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-18" class="sombra_legenda">A Quadribol do Dia a Dia</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="O Patrono da Nossa Felicidade" id="carrossel-img-19">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-19" class="sombra_legenda">O Patrono da Nossa Felicidade</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="A Primeiro Viagem à Hogsmeade!" id="carrossel-img-20">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-20" class="sombra_legenda">A Primeiro Viagem à Hogsmeade!</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Mapa do Maroto: Nossas Aventuras" id="carrossel-img-21">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-21" class="sombra_legenda">Mapa do Maroto: Nossas Aventuras</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Aprendizes da Sala Precisa" id="carrossel-img-22">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-22" class="sombra_legenda">Aprendizes da Sala Precisa</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Veritaserum: A Verdade é Que Te Amo!" id="carrossel-img-23">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-23" class="sombra_legenda">Veritaserum: A Verdade é Que Te Amo!</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Pizza no Salão Comunal" id="carrossel-img-24">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-24" class="sombra_legenda">Pizza no Salão Comunal</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Expecto Felicitas" id="carrossel-img-25">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-25" class="sombra_legenda">Expecto Felicitas</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="A Verdadeira Pedra Filosofal: Seu Coração!" id="carrossel-img-26">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-26" class="sombra_legenda">A Verdadeira Pedra Filosofal: Seu Coração!</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Hora do Banho da Madame Pomfrey" id="carrossel-img-27">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-27" class="sombra_legenda">Hora do Banho da Madame Pomfrey</p>
+            </div>
+            
+            <div class="slide">
+                <img src="" alt="Poção da Alegria" id="carrossel-img-28">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-28" class="sombra_legenda">Poção da Alegria</p>
+            </div>
+
+            <div class="slide">
+                <img src="" alt="Fofo do Vovo" id="carrossel-img-29">                <div style="height: 0px;"></div>
+                <p id="carrossel-text-29" class="sombra_legenda">O Fofo do vovo</p>
+            </div>
+
+            <div class="slide">               
+                <img src="" alt="Nós em Hogwarts" id="carrossel-img-30"> <div style="height: 0px;"></div>
+                <p id="carrossel-text-30" class="sombra_legenda">Nós em Hogwarts</p>
+            </div>
+
+            <div class="slide">               
+                <img src="" alt="Herdeira de Sonserina" id="carrossel-img-31"> <div style="height: 0px;"></div>
+                <p id="carrossel-text-31" class="sombra_legenda">Herdeira de Sonserina</p>
+            </div>
+
+
+            <!-- Slide 32 -->
+            <div class="slide">               
+                <img src="" alt="O Príncipe Mestiço e Sua Princesinha" id="carrossel-img-32"> <div style="height: 0px;"></div>
+                <p id="carrossel-text-32" class="sombra_legenda">O Príncipe Mestiço e Sua Princesinha</p>
+            </div>
+
+            <!-- Slide 33 -->
+            <div class="slide">               
+                <img src="" alt="Exploração na Caverna de Horcruxes" id="carrossel-img-33"> <div style="height: 0px;"></div>
+                <p id="carrossel-text-33" class="sombra_legenda">Exploração na Caverna de Horcruxes</p>
+            </div>
+
+            <!-- Slide 34 -->
+            <div class="slide">               
+                <img src="" alt="O Mergulho no Lago Negro" id="carrossel-img-34"> <div style="height: 0px;"></div>
+                <p id="carrossel-text-34" class="sombra_legenda">O Mergulho no Lago Negro</p>
+            </div>
+
+            <!-- Slide 35 -->
+            <div class="slide">               
+                <img src="" alt="Relíquias da Morte" id="carrossel-img-35"> <div style="height: 0px;"></div>
+                <p id="carrossel-text-35" class="sombra_legenda">Relíquias da Morte</p>
+            </div>
+
+            <!-- Slide 36 -->
+            <div class="slide">               
+                <img src="" alt="A Guardiã do Dementador Congelado" id="carrossel-img-36"> <div style="height: 0px;"></div>
+                <p id="carrossel-text-36" class="sombra_legenda">A Guardiã do Dementador Congelado</p>
+            </div>
+
+            <!-- Slide 37 -->
+            <div class="slide">               
+                <img src="" alt="Lumos nas Sombras" id="carrossel-img-37"> <div style="height: 0px;"></div>
+                <p id="carrossel-text-37" class="sombra_legenda">Lumos nas Sombras</p>
+            </div>
+
+            <!-- Slide 38 -->
+            <div class="slide">               
+                <img src="" alt="Rita Skeeter em Ação" id="carrossel-img-38"> <div style="height: 0px;"></div>
+                <p id="carrossel-text-38" class="sombra_legenda">Rita Skeeter em Ação</p>
+            </div>
+
+            <!-- Índice 39 -->
+            <div class="slide">               
+            <img src="" alt="O Chapéu Seletor Errou: Melhor Esquecer Essa Noite!" id="carrossel-img-39"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-39" class="sombra_legenda">O Chapéu Seletor Errou: Melhor Esquecer Essa Noite!</p>
+            </div>
+
+            <!-- Índice 40 -->
+            <div class="slide">               
+            <img src="" alt="Sempre!" id="carrossel-img-40"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-40" class="sombra_legenda">"Sempre!"</p>
+            </div>
+
+            <!-- Índice 41 -->
+            <div class="slide">               
+            <img src="" alt="O Prisioneiro de Azkaban" id="carrossel-img-41"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-41" class="sombra_legenda">O Prisioneiro de Azkaban</p>
+            </div>
+
+            <!-- Índice 42 -->
+            <div class="slide">               
+            <img src="" alt="O 'Felizes Para Sempre' Durou Menos que o Trono de Gelo do Voldemort" id="carrossel-img-42"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-42" class="sombra_legenda">O 'Felizes Para Sempre' Durou Menos que o Trono de Gelo do Voldemort</p>
+            </div>
+
+            <!-- Índice 43 -->
+            <div class="slide">               
+            <img src="" alt="Trocar as Casas, Mas Nunca Trocar o Uniforme" id="carrossel-img-43"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-43" class="sombra_legenda">Trocar as Casas, Mas Nunca Trocar o Uniforme</p>
+            </div>
+
+
+
+            <!-- Índice 45 -->
+            <div class="slide">               
+            <img src="" alt=" Pedra que Rola Não Cria Musgo... Vira Filosofal!" id="carrossel-img-44"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-44" class="sombra_legenda">Pedra que Rola Não Cria Musgo... Vira Filosofal!</p>
+            </div>
+
+            <!-- Índice 46 -->
+            <div class="slide">               
+            <img src="" alt="O Espelho de Ojesed Mostrava Esse Reflexo" id="carrossel-img-45"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-45" class="sombra_legenda">O Espelho de Ojesed Mostrava Esse Reflexo</p>
+            </div>
+
+            <!-- Índice 47 -->
+            <div class="slide">               
+            <img src="" alt="Relíquia da Beleza!" id="carrossel-img-46"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-46" class="sombra_legenda">Relíquia da Beleza!</p>
+            </div>
+
+            <!-- Índice 48 -->
+            <div class="slide">               
+            <img src="" alt="O Amor Ilumina Tudo" id="carrossel-img-47"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-47" class="sombra_legenda">O Amor Ilumina Tudo</p>
+            </div>
+
+            <!-- Índice 49 -->
+            <div class="slide">               
+            <img src="" alt="Mais Veloz que uma Vassoura Nimbus 2000" id="carrossel-img-48"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-48" class="sombra_legenda">Mais Veloz que uma Vassoura Nimbus 2000</p>
+            </div>
+
+            <!-- Índice 50 -->
+            <div class="slide">               
+            <img src="" alt="Dobby Tentou Jogar... Mas Prefere Lavar as Meias!" id="carrossel-img-49"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-49" class="sombra_legenda">Dobby Tentou Jogar... Mas Prefere Lavar as Meias!</p>
+            </div>
+
+            <!-- Índice 51 -->
+            <div class="slide">               
+            <img src="" alt="Mais Definida que uma Varinha de Teixo" id="carrossel-img-50"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-50" class="sombra_legenda">Mais Definida que uma Varinha de Teixo</p>
+            </div>
+
+            <!-- Índice 52 -->
+            <div class="slide">               
+            <img src="" alt="Lumos Estelar: Minha Bruxa e Sua Estrela" id="carrossel-img-51"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-51" class="sombra_legenda">Lumos Estelar: Minha Bruxa e Sua Estrela</p>
+            </div>
+
+            <!-- Índice 53 -->
+            <div class="slide">               
+            <img src="" alt="Os Primeiros Traços de Magia" id="carrossel-img-52"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-52" class="sombra_legenda">Os Primeiros Traços de Magia</p>
+            </div>
+
+            <!-- Índice 54 -->
+            <div class="slide">               
+            <img src="" alt="Relíquias do Amor: Sua Mão na Minha" id="carrossel-img-53"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-53" class="sombra_legenda">Relíquias do Amor: Sua Mão na Minha</p>
+            </div>
+
+            <!-- Índice 55 -->
+            <div class="slide">               
+            <img src="" alt="O Cálice de Fogo Está Servindo Suco de Morango" id="carrossel-img-54"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-54" class="sombra_legenda">O Cálice de Fogo Está Servindo Suco de Morango</p>
+            </div>
+
+            <!-- Índice 56 -->
+            <div class="slide">               
+            <img src="" alt="O Lago Negro nunca foi tão azul" id="carrossel-img-55"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-55" class="sombra_legenda">O Lago Negro nunca foi tão azul</p>
+            </div>
+
+            <!-- Índice 57 -->
+            <div class="slide">               
+            <img src="" alt="Relíquias do Verão" id="carrossel-img-56"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-56" class="sombra_legenda">Relíquias do Verão</p>
+            </div>
+
+            <!-- Índice 58 -->
+            <div class="slide">               
+            <img src="" alt="Fuga dos Dementadores da Rotina" id="carrossel-img-57"> <div style="height: 0px;"></div>
+            <p id="carrossel-text-57" class="sombra_legenda">Fuga dos Dementadores da Rotina</p>
+            </div>
+
+            <div class="slide">               
+                <img src="" alt="A coruja Edwiges deixou seu presente em algum lugar do carro... 🦉🎁" id="carrossel-img-58"> <div style="height: 0px;"></div>
+                <p id="carrossel-text-58" class="sombra_legenda">A coruja Edwiges deixou seu presente em algum lugar do carro... 🦉🎁</p>
+                </div>
+
+            <div class="carrossel-botoes">
+                <button class="botao-anterior">◀ Anterior</button>
+                <button class="botao-proximo">Próximo ▶</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variáveis do Quiz
+        const questions = [
+            {
+                question: "Qual qualidade você mais valoriza?",
+                options: [
+                    { text: "Coragem", house: "Grifinória" },
+                    { text: "Inteligência", house: "Corvinal" },
+                    { text: "Lealdade", house: "Lufa-Lufa" },
+                    { text: "Ambição", house: "Sonserina" }
+                ]
+            },
+            {
+                question: "Qual é seu animal favorito?",
+                options: [
+                    { text: "Leão", house: "Grifinória" },
+                    
+                    { text: "Texugo", house: "Lufa-Lufa" },
+                    { text: "Cobra", house: "Sonserina" },
+
+                    { text: "Corvo", house: "Corvinal" },
+                ]
+            },
+            {
+                question: "Como você reagiria a um desafio?",
+                options: [
+                { text: "Pediria ajuda aos amigos", house: "Lufa-Lufa" },
+                    { text: "Enfrentaria de frente", house: "Grifinória" },
+                    { text: "Planejaria cuidadosamente", house: "Corvinal" },
+                    
+                    { text: "Usaria qualquer meio necessário", house: "Sonserina" }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let housePoints = {
+            "Grifinória": 0,
+            "Corvinal": 0,
+            "Lufa-Lufa": 0,
+            "Sonserina": 0
+        };
+
+        // Adicione no início do seu JS
+        function preloadAudios() {
+            const audio = new Audio();
+            audio.src = "hogwarts-theme.mp3";
+            audio.load();
+            
+            Object.values(houseConfig).forEach(house => {
+                const a = new Audio();
+                a.src = house.audio;
+                a.load();
+            });
+        }
+        window.addEventListener('load', preloadAudios);
+        
+
+        // Exibe o envelope e começa a música
+        function abrirConvite() {
+            var evelope_box = document.getElementById('evelope-box');
+            var login_box = document.getElementById('login-box');
+            var audio = document.getElementById("hogwarts-theme");
+
+            // Esconde a caixa do envelope
+            evelope_box.style.display = 'none';
+
+            // Exibe a caixa de login
+            login_box.style.display = 'block';
+
+            // Começa a música ao abrir o convite
+            audio.volume = 0.3; // Volume moderado (30%)
+            audio.play().catch(error => console.log("Autoplay bloqueado:", error));
+        }
+
+        //  Verifica a senha e toca a música na verificação
+        function checkPassword() {
+            const input = document.getElementById("password").value.trim().toLowerCase();
+            const audio = document.getElementById("hogwarts-theme");
+            
+        // Lista de senhas aceitas (todas em minúsculas)
+        const senhasAceitas = [
+            "93/4", 
+            "9 3/4", 
+            "plataforma 93/4", 
+            "plataforma 9 3/4",
+            "platform 93/4",  // versão em inglês
+            "platform 9 3/4"  // versão em inglês
+        ];
+
+        // Verifica se a senha digitada está na lista
+        if (senhasAceitas.includes(input)) {
+                // Configura e toca a música
+                audio.volume = 0.3; // Volume em 30%
+                audio.play()
+                    .then(() => {
+                        startFlooParticles(); // Efeitos visuais
+                        document.getElementById("login-box").style.display = "none";
+                        document.getElementById("quiz-container").style.display = "block";
+                        loadQuestion(); // Carrega a primeira pergunta
+                    })
+                    .catch(error => console.log("Erro ao reproduzir música:", error));
+            } else {
+                alert("Feitiço errado! Tente novamente 🧙‍♀️");
+            }
+        }
+
+        // Carrega as perguntas do quiz
+        function loadQuestion() {
+            const quizDiv = document.getElementById("quiz-questions");
+            quizDiv.innerHTML = `
+                <div class="question">
+                    <h3>${questions[currentQuestion].question}</h3>
+                    <div class="options">
+                        ${questions[currentQuestion].options.map((option, index) => `
+                            <button class="option-btn" onclick="selectOption(${index})">${option.text}</button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Processa a seleção de opções
+        function selectOption(index) {
+            const selectedHouse = questions[currentQuestion].options[index].house;
+            housePoints[selectedHouse]++;
+            
+            // Console.log para ver a contagem após cada resposta
+            console.log(`Pontuação atualizada após a pergunta ${currentQuestion + 1}:`, JSON.parse(JSON.stringify(housePoints)));
+            
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                document.getElementById("submit-quiz").style.display = "block";
+            }
+        }
+
+        // function showResult() {
+        //     const house = Object.entries(housePoints).reduce((a, b) => a[1] > b[1] ? a : b)[0];
+            
+        //     // Console.log para ver o resultado final
+        //     console.log("Pontuação FINAL das casas:", JSON.parse(JSON.stringify(housePoints)));
+        //     console.log("Casa selecionada:", house);
+            
+        //     const houseColors = {
+        //         "Grifinória": "#ae0001",
+        //         "Corvinal": "#222f5b",
+        //         "Lufa-Lufa": "#ecb939",
+        //         "Sonserina": "#2a623d"
+        //     };
+            
+        //     document.getElementById("quiz-container").style.display = "none";
+        //     document.getElementById("quiz-result").style.display = "block";
+        //     document.getElementById("house-title").textContent = `🏰 ${house}!`;
+        //     document.getElementById("house-title").style.color = houseColors[house];
+        //     document.getElementById("house-description").innerHTML = `
+        //         <p>O Chapéu Seletor decidiu que você pertence à <strong>${house}</strong>!</p>
+        //         <img  class="img-anima" src="img_filme/brasao_${house === 'Grifinória' ? 'g' : 
+        //                                 house === 'Corvinal' ? 'r' : 
+        //                                 house === 'Lufa-Lufa' ? 'h' : 's'}.png" 
+        //                 width="200" style="margin: 10px;">
+        //     `;
+        //     // play audio
+        // }
+
+//         function showResult() {
+//     const house = Object.entries(housePoints).reduce((a, b) => a[1] > b[1] ? a : b)[0];
+    
+//     // Console.log para ver o resultado final
+//     console.log("Pontuação FINAL das casas:", JSON.parse(JSON.stringify(housePoints)));
+//     console.log("Casa selecionada:", house);
+    
+//     const houseConfig = {
+//         "Grifinória": {
+//             color: "#ae0001",
+//             audio: "audio_filme/grifinoria.mp3",
+//             brasao: "g"
+//         },
+//         "Corvinal": {
+//             color: "#222f5b",
+//             audio: "audio_filme/corvinal.mp3",
+//             brasao: "r"
+//         },
+//         "Lufa-Lufa": {
+//             color: "#ecb939",
+//             audio: "audio_filme/lufalufa.mp3",
+//             brasao: "h"
+//         },
+//         "Sonserina": {
+//             color: "#2a623d",
+//             audio: "audio_filme/sonserina.mp3",
+//             brasao: "s"
+//         }
+//     };
+    
+//     // Atualiza a exibição
+//     document.getElementById("quiz-container").style.display = "none";
+//     document.getElementById("quiz-result").style.display = "block";
+//     document.getElementById("house-title").textContent = `🏰 ${house}!`;
+//     document.getElementById("house-title").style.color = houseConfig[house].color;
+//     document.getElementById("house-description").innerHTML = `
+//         <p>O Chapéu Seletor decidiu que você pertence à <strong>${house}</strong>!</p>
+//         <img class="img-anima" src="img_filme/brasao_${houseConfig[house].brasao}.png" 
+//              width="200" style="margin: 10px; opacity: 0; transition: opacity 1.5s ease-in-out;">
+//     `;
+    
+//     // Toca o áudio da casa
+//     const audio = new Audio(houseConfig[house].audio);
+//     audio.play().catch(e => console.log("Erro ao reproduzir áudio:", e));
+    
+//     // Mostra a imagem após 5 segundos com fade-in
+//     setTimeout(() => {
+//         const img = document.querySelector('.img-anima');
+//         if (img) {
+//             img.style.opacity = '1';
+            
+//             // Efeito adicional de flutuação (opcional)
+//             img.style.animation = 'flutuar 3s ease-in-out infinite';
+//         }
+//     }, 3000); // 5000ms = 5 segundos
+// }
+
+
+        function showResult() {
+
+            pausarMusicaComFade()
+
+            const house = Object.entries(housePoints).reduce((a, b) => a[1] > b[1] ? a : b)[0];
+            
+            
+            // Oculta o quiz e mostra o container do resultado (invisível inicialmente)
+            document.getElementById("quiz-container").style.display = "none";
+            document.getElementById("quiz-result").style.display = "block";
+            document.getElementById("quiz-result").style.opacity = "0"; // Inicia invisível
+
+            // Configurações das casas
+            const houseConfig = {
+                "Grifinória": {
+                    color: "#ae0001",
+                    audio: "audio_filme/grifinoria.mp3",
+                    brasao: "g"
+                },
+                "Corvinal": {
+                    color: "#222f5b",
+                    audio: "audio_filme/corvinal.mp3",
+                    brasao: "r"
+                },
+                "Lufa-Lufa": {
+                    color: "#ecb939",
+                    audio: "audio_filme/lufalufa.mp3",
+                    brasao: "h"
+                },
+                "Sonserina": {
+                    color: "#2a623d",
+                    audio: "audio_filme/sonserina.mp3",
+                    brasao: "s"
+                }
+            };
+
+            // 1. Primeiro insira o conteúdo TODO invisível
+            document.getElementById("house-title").innerHTML = `🏰 ${house}!`;
+            document.getElementById("house-title").style.color = houseConfig[house].color;
+            document.getElementById("house-title").style.opacity = "0";
+            document.getElementById("house-title").style.transition = "opacity 1s ease-in-out";
+
+            document.getElementById("house-description").innerHTML = `
+                <p style="opacity: 0; transition: opacity 1s ease-in-out 0.5s; text-align: center;">
+                    O Chapéu Seletor decidiu que você pertence à ${house}!
+                </p>
+                <div style="display: flex; justify-content: center;">
+                    <img class="img-anima2" src="img_filme/brasao_${houseConfig[house].brasao}.png" 
+                        width="200" style="margin: 10px; opacity: 0; transition: opacity 1s ease-in-out 1s;">
+                </div>
+            `;
+            
+
+            // Toca o áudio da casa (se existir)
+            if (houseConfig[house].audio) {
+                new Audio(houseConfig[house].audio).play().catch(console.error);
+            }
+
+            // 3. Função para mostrar elementos (APÓS 5 SEGUNDOS)
+            setTimeout(() => {
+                // Ativa container principal
+                document.getElementById("quiz-result").style.opacity = "1";
+                
+                // Mostra elementos em sequência
+                const elementsToShow = [
+                    { selector: "#house-title", delay: 0 },
+                    { selector: "#house-description p", delay: 200 },
+                    { selector: "#house-description strong", delay: 300 },
+                    { selector: ".img-anima2", delay: 400 }
+                ];
+                
+                elementsToShow.forEach(item => {
+                    setTimeout(() => {
+                        const el = document.querySelector(item.selector);
+                        if (el) {
+                            el.style.opacity = "1";
+                            console.log(`Mostrando: ${item.selector}`); // Debug
+                        }
+                    }, item.delay);
+                });
+            }, 1000); // Inicia após 5 segundos
+
+            setTimeout(() => {
+                playMusica()
+            }, 10000); // Inicia após 5 segundos
+            
+        }
+
+        // Entra na área secreta após o quiz
+        function enterSecretArea() {
+            document.getElementById("quiz-result").style.display = "none";
+            document.getElementById("secret-area").style.display = "block";
+            document.getElementById("secret-area").innerHTML = `
+                <div style="background: rgba(0,0,0,0.7); padding: 30px; border-radius: 10px; max-width: 800px; margin: 20px auto;">
+                    <h1 style="color: #d4af37;">🎉 PARABÉNS MEU AMOR! 🎉</h1>
+                    <p style="font-size: 1.2rem;">A Sala Precisa se transformou especialmente para você!</p>
+
+
+                    <div class="img-anima" style="margin-top: 40px; background: url('img_filme/pergaminho_msg.jpg') no-repeat center; background-size: cover; padding: 40px 60px; color: #000;">
+
+                        <p style="font-size: 1.3rem; margin-bottom: 30px;">🎈 Feliz Aniversário, minha bruxa favorita! 🎈</p>
+
+
+                        <P style="font-size: 1.1rem;text-indent: 50px; text-align: justify; margin-bottom: 30px;">Meu amor... </p>
+                            
+                    
+                        <P style="font-size: 1.1rem;text-indent: 50px; text-align: justify;">Hoje é o seu dia, e quero que ele seja tão mágico quanto a Plataforma 9¾ e mais doce que uma cerveja amanteigada!</p>
+                            
+
+                        <P style="font-size: 1.1rem;text-indent: 50px; text-align: justify;">Desejo muita felicidade, amor, saúde e paz na sua vida.</P>
+                        
+                            
+                        <P style="font-size: 1.1rem;text-indent: 50px; text-align: justify;">Que o brilho do seu sorriso continue iluminando todos ao seu redor.</P>
+
+                        <P style="font-size: 1.1rem;text-indent: 50px; text-align: justify;">Tenho muito orgulho de você e estarei sempre ao seu lado; apoiando suas escolhas, seus desejos e seus sonhos...</P>
+
+                        <P style="font-size: 1.1rem;text-indent: 50px; text-align: justify; ">E que venham muitos momentos inesquecíveis para compartilharmos juntos...</P>
+
+     
+
+                        <P style="font-size: 1.3rem;margin-bottom: 30px;margin-top: 30px;">Te Amo! 🪄❤️</p>
+
+                        <p style="font-size: 1.1rem; text-align: right; margin-rigth: 30px;">
+                            Assinado: Nick J.C.
+                        </p>
+
+                    </div>
+
+                    <h1 style="color: #d4af37; margin-top: 50px">⏳ VOLTE NO TEMPO COM UM CLIQUE! ⏳</h1>
+                    <p style="font-size: 1.2rem;">
+                        Assim como o Vira-Tempo de Hermione, cada foto aqui guarda um fragmento do passado. 
+                        reviva momentos mágicos que merecem ser eternizados. <br><br>
+                        <strong>Qual memória você quer revisitar hoje?
+                    </p>
+
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 30px auto;">
+                        
+                        <button type="button" class="" style="min-height: 80px"  data-index="0" onclick="abrirCarrossel(0)">
+                            No Escritório de Dumbledore: Conselhos e Segredos
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="1" onclick="abrirCarrossel(1)">
+                            Hora do chá no Três Vassouras
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="2" onclick="abrirCarrossel(2)">
+                            Nossa varinha escolheu você
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="3" onclick="abrirCarrossel(3)">
+                            Casal de bruxos
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="4" onclick="abrirCarrossel(4)">
+                            Passeio pelo Beco Diagonal
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="5" onclick="abrirCarrossel(5)">
+                            A Única Prisioneira de Azkaban Que Eu Quero Ter no Meu Coração!
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="6" onclick="abrirCarrossel(6)">
+                            O Chapéu Seletor Escolheu: FELICIDADE!!!
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="7" onclick="abrirCarrossel(7)">
+                            O Cálice de Fogo... de Chocolate!
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="8" onclick="abrirCarrossel(8)">
+                            A Pedra Filosofal do Nosso Casamento
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="9" onclick="abrirCarrossel(9)">
+                            Quadribol em Família
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="10" onclick="abrirCarrossel(10)">
+                            Voo de Vassoura Juntos
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="11" onclick="abrirCarrossel(11)">
+                            Nossa Poção do Amor
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="12" onclick="abrirCarrossel(12)">
+                            O Dobby da Casa
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="13" onclick="abrirCarrossel(13)">
+                            Aula de Poções Românticas
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="14" onclick="abrirCarrossel(14)">
+                            Banquete em Hogwarts
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="15" onclick="abrirCarrossel(15)">
+                            Feitiço de Sorrisos
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="16" onclick="abrirCarrossel(16)">
+                            O Feitiço do Amor Eterno
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="17" onclick="abrirCarrossel(17)">
+                            A Quadribol do Dia a Dia
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="18" onclick="abrirCarrossel(18)">
+                            O Patrono da Nossa Felicidade
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="19" onclick="abrirCarrossel(19)">
+                            A Primeiro Viagem à Hogsmeade!
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="20" onclick="abrirCarrossel(20)">
+                            Mapa do Maroto: Nossas Aventuras
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="21" onclick="abrirCarrossel(21)">
+                            Aprendizes da Sala Precisa
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="22" onclick="abrirCarrossel(22)">
+                            Veritaserum: A Verdade é Que Te Amo
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="23" onclick="abrirCarrossel(23)">
+                            Pizza no Salão Comunal
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="24" onclick="abrirCarrossel(24)">
+                            Expecto Felicitas
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="25" onclick="abrirCarrossel(25)">
+                            A Verdadeira Pedra Filosofal: Seu Coração!
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="26" onclick="abrirCarrossel(26)">
+                            Nossa 'Poção' Preferida: Café da Manhã de Pousada!
+                        </button>
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="27" onclick="abrirCarrossel(27)">
+                            Poção da Alegria
+                        </button>   
+
+                        <button type="button" class="" style="min-height: 80px" data-index="28" onclick="abrirCarrossel(28)">
+                            Fofo do vovo
+                        </button>   
+
+                        <button type="button" class="" style="min-height: 80px" data-index="29" onclick="abrirCarrossel(29)">
+                            Nós em Hogwarts
+                        </button>   
+
+                        <button type="button" class="" style="min-height: 80px" data-index="30" onclick="abrirCarrossel(30)">
+                            Herdeira de Sonserina
+                        </button>  
+
+                        <button type="button" class="" style="min-height: 80px" data-index="31" onclick="abrirCarrossel(31)">
+                            O Príncipe Mestiço e Sua Princesinha
+                        </button>  
+                        <button type="button" class="" style="min-height: 80px" data-index="32" onclick="abrirCarrossel(32)">
+                            Exploração na Caverna de Horcruxes 
+                        </button> 
+                        <button type="button" class="" style="min-height: 80px" data-index="33" onclick="abrirCarrossel(33)">
+                            O Mergulho no Lago Negro
+                        </button> 
+                        <button type="button" class="" style="min-height: 80px" data-index="34" onclick="abrirCarrossel(34)">
+                            Relíquias da Morte
+                        </button> 
+                        <button type="button" class="" style="min-height: 80px" data-index="35" onclick="abrirCarrossel(35)">
+                            A Guardiã do Dementador Congelado
+                        </button> 
+                        <button type="button" class="" style="min-height: 80px" data-index="36" onclick="abrirCarrossel(36)">
+                            Lumos nas Sombras
+                        </button> 
+                        <button type="button" class="" style="min-height: 80px" data-index="37" onclick="abrirCarrossel(37)">
+                            Rita Skeeter em Ação
+                        </button> 
+
+                        <button type="button" class="" style="min-height: 80px" data-index="38" onclick="abrirCarrossel(38)">
+                        O Chapéu Seletor Errou: Melhor Esquecer Essa Noite!
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="39" onclick="abrirCarrossel(39)">
+                        "Sempre!"
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="40" onclick="abrirCarrossel(40)">
+                        O Prisioneiro de Azkaban
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="41" onclick="abrirCarrossel(41)">
+                        O 'Felizes Para Sempre' Durou Menos que o Trono de Gelo do Voldemort
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="42" onclick="abrirCarrossel(42)">
+                        Trocar as Casas, Mas Nunca Trocar o Uniforme
+                        </button>
+
+
+                        <button type="button" class="" style="min-height: 80px" data-index="43" onclick="abrirCarrossel(43)">
+                        Pedra que Rola Não Cria Musgo... Vira Filosofal!
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="44" onclick="abrirCarrossel(44)">
+                        O Espelho de Ojesed Mostrava Esse Reflexo
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="45" onclick="abrirCarrossel(45)">
+                        Relíquia da Beleza!
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="46" onclick="abrirCarrossel(46)">
+                        O Amor Ilumina Tudo
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="47" onclick="abrirCarrossel(47)">
+                        Mais Veloz que uma Vassoura Nimbus 2000
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="48" onclick="abrirCarrossel(48)">
+                        Dobby Tentou Jogar... Mas Prefere Lavar as Meias!
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="49" onclick="abrirCarrossel(49)">
+                        Mais Definida que uma Varinha de Teixo
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="50" onclick="abrirCarrossel(50)">
+                        Lumos Estelar: Minha Bruxa e Sua Estrela
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="51" onclick="abrirCarrossel(51)">
+                        Os Primeiros Traços de Magia
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="52" onclick="abrirCarrossel(52)">
+                        Relíquias do Amor: Sua Mão na Minha
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="53" onclick="abrirCarrossel(53)">
+                        O Cálice de Fogo Está Servindo Suco de Morango
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="54" onclick="abrirCarrossel(54)">
+                        O Lago Negro nunca foi tão azul
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="55" onclick="abrirCarrossel(55)">
+                        Relíquias do Verão
+                        </button>
+
+                        <button type="button" class="" style="min-height: 80px" data-index="56" onclick="abrirCarrossel(56)">
+                        Fuga dos Dementadores da Rotina
+                        </button>
+
+                        
+                        <button type="button" class="" style="min-height: 80px" data-index="57" onclick="abrirCarrossel(57)">
+                            A Edwiges...
+                        </button>
+
+
+
+
+                    </div>
+
+                    
+                    
+
+                    <div style="margin-top: 30px;">
+                        <button onclick="pausarMusicaComFade()">⏸️ Pausar Música</button>
+                        <button onclick="playMusica()">▶️ Continuar</button>
+                    </div>
+
+                    <button onclick="sairSala()" style="margin-top: 50px;"><span style="font-size: 15px;">🪄</span> Saindo da Sala Precisa... até o próximo feitiço!'<span style="font-size: 15px;">🏰</span></button>
+
+                    
+                </div>
+            `;
+            createFlooParticles();
+
+            // <input type="range" min="0" max="1" step="0.1" 
+            // oninput="document.getElementById('hogwarts-theme').volume = this.value" 
+            // value="0.3">
+        }
+
+        // Carrossel Mágico
+        let slideAtual = 0;
+        const slides = document.querySelectorAll('.slide');
+        const carrossel = document.querySelector('.carrossel-magico');
+
+        // Função para abrir o carrossel em um slide específico
+        function abrirCarrossel(index) {
+            slideAtual = index;
+            atualizarSlide();
+            carrossel.style.display = 'flex';
+            
+            // Aqui você pode carregar as imagens reais se necessário
+            // Assign images and text to each carousel slide
+
+
+            document.getElementById('carrossel-img-1').src = "fotos/dumbledore.jpg";
+            document.getElementById('carrossel-text-1').textContent = "No Escritório de Dumbledore: Conselhos e Segredos";
+
+
+            
+
+            document.getElementById('carrossel-img-2').src = "fotos/cha_tres_vassouras.jpeg";
+            document.getElementById('carrossel-text-2').textContent = "Hora do chá no Três Vassouras";
+
+            document.getElementById('carrossel-img-3').src = "fotos/varinha_escolheu.jpeg";
+            document.getElementById('carrossel-text-3').textContent = "Nossa varinha escolheu você";
+
+            document.getElementById('carrossel-img-4').src = "fotos/casal_bruxos.jpeg";
+            document.getElementById('carrossel-text-4').textContent = "Casal de bruxos";
+
+            document.getElementById('carrossel-img-5').src = "fotos/beco_diagonal.jpeg";
+            document.getElementById('carrossel-text-5').textContent = "Passeio pelo Beco Diagonal";
+
+            document.getElementById('carrossel-img-6').src = "fotos/prisioneira_coracao.JPEG";
+            document.getElementById('carrossel-text-6').textContent = "A Única Prisioneira de Azkaban Que Eu Quero Ter no Meu Coração!";
+
+            document.getElementById('carrossel-img-7').src = "fotos/chapeu_amor.jpeg";
+            document.getElementById('carrossel-text-7').textContent = "O Chapéu Seletor Escolheu: FELICIDADE!!!";
+
+            document.getElementById('carrossel-img-8').src = "fotos/calice_chocolate.jpg";
+            document.getElementById('carrossel-text-8').textContent = "O Cálice de Fogo... de Chocolate!";
+
+            document.getElementById('carrossel-img-9').src = "fotos/pedra_filosofal.jpeg";
+            document.getElementById('carrossel-text-9').textContent = "A Pedra Filosofal do Nosso Casamento";
+
+            document.getElementById('carrossel-img-10').src = "fotos/quadribol_familia.jpeg";
+            document.getElementById('carrossel-text-10').textContent = "Quadribol em Família";
+
+            document.getElementById('carrossel-img-11').src = "fotos/voo_vassoura.jpeg";
+            document.getElementById('carrossel-text-11').textContent = "Voo de Vassoura Juntos";
+
+            document.getElementById('carrossel-img-12').src = "fotos/pocao_amor.jpeg";
+            document.getElementById('carrossel-text-12').textContent = "Nossa Poção do Amor";
+
+            document.getElementById('carrossel-img-13').src = "fotos/dobby_casa.jpeg";
+            document.getElementById('carrossel-text-13').textContent = "O Dobby da Casa";
+
+            document.getElementById('carrossel-img-14').src = "fotos/aula_pocoes.jpg";
+            document.getElementById('carrossel-text-14').textContent = "Aula de Poções Românticas";
+
+            document.getElementById('carrossel-img-15').src = "fotos/banquete_hogwarts.jpeg";
+            document.getElementById('carrossel-text-15').textContent = "Banquete em Hogwarts";
+
+            document.getElementById('carrossel-img-16').src = "fotos/feitico_sorrisos.jpeg";
+            document.getElementById('carrossel-text-16').textContent = "Feitiço de Sorrisos";
+
+            document.getElementById('carrossel-img-17').src = "fotos/feitico_amor.jpeg";
+            document.getElementById('carrossel-text-17').textContent = "O Feitiço do Amor Eterno";
+
+            document.getElementById('carrossel-img-18').src = "fotos/quadribol_dia.jpeg";
+            document.getElementById('carrossel-text-18').textContent = "A Quadribol do Dia a Dia";
+
+            document.getElementById('carrossel-img-19').src = "fotos/patrono_felicidade.jpg";
+            document.getElementById('carrossel-text-19').textContent = "O Patrono da Nossa Felicidade";
+
+            document.getElementById('carrossel-img-20').src = "fotos/hogsmeade.jpeg";
+            document.getElementById('carrossel-text-20').textContent = "A Primeiro Viagem à Hogsmeade!";
+
+            document.getElementById('carrossel-img-21').src = "fotos/mapa_aventuras.jpeg";
+            document.getElementById('carrossel-text-21').textContent = "Mapa do Maroto: Nossas Aventuras";
+
+            document.getElementById('carrossel-img-22').src = "fotos/sala_precisa.jpg";
+            document.getElementById('carrossel-text-22').textContent = "Aprendizes da Sala Precisa";
+
+            document.getElementById('carrossel-img-23').src = "fotos/veritaserum.jpeg";
+            document.getElementById('carrossel-text-23').textContent = "Veritaserum: A Verdade é Que Te Amo";
+
+            document.getElementById('carrossel-img-24').src = "fotos/vira_tempo.jpeg";
+            document.getElementById('carrossel-text-24').textContent = "Pizza no Salão Comunal";
+
+            document.getElementById('carrossel-img-25').src = "fotos/expecto_felicitas.jpeg";
+            document.getElementById('carrossel-text-25').textContent = "Expecto Felicitas";
+
+            document.getElementById('carrossel-img-26').src = "fotos/coracao_ouro.jpg";
+            document.getElementById('carrossel-text-26').textContent = "A Verdadeira Pedra Filosofal: Seu Coração!";
+
+            document.getElementById('carrossel-img-27').src = "fotos/banho.jpeg";
+            document.getElementById('carrossel-text-27').textContent = "Hora do Banho da Madame Pomfrey";
+
+            document.getElementById('carrossel-img-28').src = "fotos/pocao_alegria.jpeg";
+            document.getElementById('carrossel-text-28').textContent = "Poção da Alegria";
+
+            document.getElementById('carrossel-img-29').src = "fotos/fofo_vovo.jpg";
+            document.getElementById('carrossel-text-29').textContent = "O Fofo do vovo";
+
+            document.getElementById('carrossel-img-30').src = "fotos/nos_em_hogwarts.jpeg";
+            document.getElementById('carrossel-text-30').textContent = "Nós em Hogwarts";
+
+            document.getElementById('carrossel-img-31').src = "fotos/cobra.jpeg";
+            document.getElementById('carrossel-text-31').textContent = "Herdeira de Sonserina";
+
+            document.getElementById('carrossel-img-32').src = "fotos/com_o_pai.jpg";
+            document.getElementById('carrossel-text-32').textContent = "O Príncipe Mestiço e Sua Princesinha";
+
+            document.getElementById('carrossel-img-33').src = "fotos/caverna.jpeg";
+            document.getElementById('carrossel-text-33').textContent = "Exploração na Caverna de Horcruxes";
+
+            document.getElementById('carrossel-img-34').src = "fotos/mergulho.jpeg";
+            document.getElementById('carrossel-text-34').textContent = "O Mergulho no Lago Negro";
+
+            document.getElementById('carrossel-img-35').src = "fotos/reliquias.jpeg";
+            document.getElementById('carrossel-text-35').textContent = "Relíquias da Morte";
+
+            document.getElementById('carrossel-img-36').src = "fotos/trono.jpeg";
+            document.getElementById('carrossel-text-36').textContent = "A Guardiã do Dementador Congelado";
+
+            document.getElementById('carrossel-img-37').src = "fotos/caverna2.jpeg";
+            document.getElementById('carrossel-text-37').textContent = "Lumos nas Sombras";
+
+            document.getElementById('carrossel-img-38').src = "fotos/maquina.jpeg";
+            document.getElementById('carrossel-text-38').textContent = "Rita Skeeter em Ação";
+
+            // Índice 39
+            document.getElementById('carrossel-img-39').src = "fotos/festa_ruim.jpeg";
+            document.getElementById('carrossel-text-39').textContent = "O Chapéu Seletor Errou: Melhor Esquecer Essa Noite!";
+
+            // Índice 40
+            document.getElementById('carrossel-img-40').src = "fotos/sempre.jpeg";
+            document.getElementById('carrossel-text-40').textContent = "Sempre!";
+
+            // Índice 41
+            document.getElementById('carrossel-img-41').src = "fotos/prisioneiro.jpeg";
+            document.getElementById('carrossel-text-41').textContent = " O Prisioneiro de Azkaban";
+
+            // Índice 42
+            document.getElementById('carrossel-img-42').src = "fotos/casamento_julio.jpeg";
+            document.getElementById('carrossel-text-42').textContent = "O 'Felizes Para Sempre' Durou Menos que o Trono de Gelo do Voldemort";
+
+            // Índice 43
+            document.getElementById('carrossel-img-43').src = "fotos/uniforme.jpg";
+            document.getElementById('carrossel-text-43').textContent = "Trocar as Casas, Mas Nunca Trocar o Uniforme";
+
+
+            // Índice 45
+            document.getElementById('carrossel-img-44').src = "fotos/rock.jpg";
+            document.getElementById('carrossel-text-44').textContent = "Pedra que Rola Não Cria Musgo... Vira Filosofal!";
+
+            // Índice 46
+            document.getElementById('carrossel-img-45').src = "fotos/reflexo.jpeg";
+            document.getElementById('carrossel-text-45').textContent = "O Espelho de Ojesed Mostrava Esse Reflexo";
+
+            // Índice 47
+            document.getElementById('carrossel-img-46').src = "fotos/princesa.jpeg";
+            document.getElementById('carrossel-text-46').textContent = "Relíquia da Beleza!";
+
+            // Índice 48
+            document.getElementById('carrossel-img-47').src = "fotos/por_sol.jpeg";
+            document.getElementById('carrossel-text-47').textContent = "O Amor Ilumina Tudo";
+
+            // Índice 49
+            document.getElementById('carrossel-img-48').src = "fotos/dirigindo.jpeg";
+            document.getElementById('carrossel-text-48').textContent = "Mais Veloz que uma Vassoura Nimbus 2000";
+
+            // Índice 50
+            document.getElementById('carrossel-img-49').src = "fotos/tenis.jpg";
+            document.getElementById('carrossel-text-49').textContent = "Dobby Tentou Jogar... Mas Prefere Lavar as Meias!";
+
+            // Índice 51
+            document.getElementById('carrossel-img-50').src = "fotos/suco.jpeg";
+            document.getElementById('carrossel-text-50').textContent = "Mais Definida que uma Varinha de Teixo";
+
+            // Índice 52
+            document.getElementById('carrossel-img-51').src = "fotos/gata.jpg";
+            document.getElementById('carrossel-text-51').textContent = "Lumos Estelar: Minha Bruxa e Sua Estrela";
+
+            // Índice 53
+            document.getElementById('carrossel-img-52').src = "fotos/crianca.jpg";
+            document.getElementById('carrossel-text-52').textContent = "Os Primeiros Traços de Magia";
+
+            // Índice 54
+            document.getElementById('carrossel-img-53').src = "fotos/romantica.jpeg";
+            document.getElementById('carrossel-text-53').textContent = "Relíquias do Amor: Sua Mão na Minha";
+
+            // Índice 55
+            document.getElementById('carrossel-img-54').src = "fotos/pocao.jpeg";
+            document.getElementById('carrossel-text-54').textContent = "O Cálice de Fogo Está Servindo Suco de Morango";
+
+            // Índice 56
+            document.getElementById('carrossel-img-55').src = "fotos/agua.jpeg";
+            document.getElementById('carrossel-text-55').textContent = "O Lago Negro Nunca Foi Tão Azul";
+
+            // Índice 57
+            document.getElementById('carrossel-img-56').src = "fotos/agua_mar.jpeg";
+            document.getElementById('carrossel-text-56').textContent = "Relíquias do Verão";
+
+            // Índice 58
+            document.getElementById('carrossel-img-57').src = "fotos/quadro.png";
+            document.getElementById('carrossel-text-57').textContent = "Fuga dos Dementadores da Rotina";
+
+            document.getElementById('carrossel-img-58').src = "fotos/edwiges.webp";
+            document.getElementById('carrossel-text-58').textContent = "A coruja Edwiges deixou seu presente em algum lugar do carro... 🦉🎁";
+
+        
+        }
+
+        // Navegação
+        document.querySelector('.botao-anterior').addEventListener('click', () => {
+            slideAtual = (slideAtual > 0) ? slideAtual - 1 : slides.length - 1;
+            atualizarSlide();
+        });
+        
+        document.querySelector('.botao-proximo').addEventListener('click', () => {
+            slideAtual = (slideAtual < slides.length - 1) ? slideAtual + 1 : 0;
+            atualizarSlide();
+        });
+        
+        // Fechar
+        document.querySelector('.fechar-carrossel').addEventListener('click', () => {
+            carrossel.style.display = 'none';
+        });
+        
+        // Fecha ao clicar fora
+        carrossel.addEventListener('click', (e) => {
+            if (e.target === carrossel) {
+                carrossel.style.display = 'none';
+            }
+        });
+        
+        // Atualiza slides
+        function atualizarSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === slideAtual);
+            });
+        }
+
+
+        function sairSala() {
+            location.reload(); // Recarrega imediatamente
+        }
+
+        // Variável para controlar o intervalo
+        let floopInterval;
+
+        function createFlooParticles() {
+            // Cria apenas 5 partículas por vez (mais suave)
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement("div");
+                    particle.className = "floo-particle";
+                    particle.style.left = Math.random() * 100 + "vw";
+                    particle.style.bottom = "0";
+                    particle.style.animationDuration = (Math.random() * 4 + 3) + "s"; // 3-7s
+                    particle.style.opacity = Math.random() * 0.5 + 0.3;
+                    document.body.appendChild(particle);
+                    
+                    // Remove após a animação + margem de segurança
+                    setTimeout(() => {
+                        particle.remove();
+                    }, 8000);
+                }, i * 300); // Espaçamento de 300ms entre cada
+            }
+        }
+
+        // Inicia o fluxo contínuo
+        function startFlooParticles() {
+            // Cria o primeiro grupo imediatamente
+            createFlooParticles(); 
+            
+            // Agenda novos grupos a cada 2 segundos
+            floopInterval = setInterval(createFlooParticles, 2000);
+        }
+
+        // Animação do Pomo de Ouro
+        const snitch = document.querySelector('.golden-snitch');
+        let x = Math.random() * (window.innerWidth - 115);
+        let y = Math.random() * (window.innerHeight - 115);
+        let speed = 2;
+        let dx = Math.random() < 0.5 ? speed : -speed;
+        let dy = Math.random() < 0.5 ? speed : -speed;
+
+        function animateSnitch() {
+            x += dx;
+            y += dy;
+
+            // Rebater nas bordas
+            if (x <= 0 || x >= window.innerWidth - 115) dx = -dx;
+            if (y <= 0 || y >= window.innerHeight - 115) dy = -dy;
+
+            snitch.style.left = x + 'px';
+            snitch.style.top = y + 'px';
+
+
+
+            requestAnimationFrame(animateSnitch);
+        }
+
+
+        animateSnitch();
+
+
+        // Inicia as partículas quando a página carrega
+        window.onload = function() {
+            startFlooParticles();
+        };
+
+        // Efeito de clique mágico
+        document.addEventListener("click", (e) => {
+            for (let i = 0; i < 3; i++) {
+                const particle = document.createElement("div");
+                particle.className = "spark";
+                particle.style.left = e.clientX + (Math.random() * 20 - 10) + "px";
+                particle.style.top = e.clientY + (Math.random() * 20 - 10) + "px";
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
+            }
+        });
+
+        var golden_snitch = document.getElementById("golden-snitch");
+        golden_snitch.onclick = function() {
+            // Array com personagens (mantemos a aleatoriedade só dos personagens)
+
+            var dica = document.getElementById("dica");
+            dica.style.display = "block";
+
+
+            const personagens = [
+                {
+                    nome: "Alvo Dumbledore",
+                    imagem: "alvo.webp",
+                    frase: "Ah, as coisas que perdemos... aparecem no Expresso de Hogwarts!"
+                },
+                {
+                    nome: "Hermione Granger",
+                    imagem: "hermi.jpg",
+                    frase: "Está nos livros! A plataforma escondida em King's Cross!"
+                },
+                {
+                    nome: "Rúbeo Hagrid",
+                    imagem: "rubeo.jpg",
+                    frase: "É fácil, basta correr direto pro paredão entre as plataformas 9 e 10!"
+                },
+                {
+                    nome: "Harry Potter",
+                    imagem: "harry.jpg",
+                    frase: "Confie em mim, passei por isso no meu primeiro ano: Plataforma Nove e Três Quartos!"
+                },
+                {
+                    nome: "Tio Válter Dursley",
+                    imagem: "valter.png",
+                    frase: "Absurdo! Plataforma com fração? Isso é coisa de... gente estranha!"
+                },
+                {
+                    nome: "Severo Snape",
+                    imagem: "snape.jpeg",
+                    frase: "Até um trouxa encontraria... se tivesse um décimo da coragem necessária"
+                },
+                {
+                    nome: "Rony Weasley",
+                    imagem: "rony.jpg",
+                    frase: "Só seguir minha família, fazemos isso todo ano!"
+                },
+                {
+                    nome: "Dobby",
+                    imagem: "dobby.webp",
+                    frase: "Dobby sabe onde fica! Mas Dobby não pode dizer, não senhor!"
+                },
+                {
+                    nome: "Neville Longbottom",
+                    imagem: "neville.jpg",
+                    frase: "Quase perdi o trem no primeiro ano... é entre a 9 e a 10!"
+                },
+                {
+                    nome: "Madame Rolanda Hooch",
+                    imagem: "madame.jpeg",
+                    frase: "Até vassouras precisam passar pela plataforma nove e três quartos!"
+                },
+                {
+                    nome: "Sirius Black",
+                    imagem: "sirius.webp",
+                    frase: "Lembro como hoje... correr para aquela plataforma com Tiago"
+                },
+                {
+                    nome: "Draco Malfoy",
+                    imagem: "draco.jpg",
+                    frase: "Até um sangue-ruim saberia que é... ou não?"
+                },
+                {
+                    nome: "Remo Lupin",
+                    imagem: "renus.webp",
+                    frase: "Mesmo após todos esses anos, ainda sinto a emoção da plataforma"
+                },
+                {
+                    nome: "Minerva McGonagall",
+                    imagem: "minerva.jpg",
+                    frase: "Plataforma nove e três quartos, pontualmente às 11h!"
+                }
+            ];
+
+            // Seleciona um personagem aleatório
+            const personagem = personagens[Math.floor(Math.random() * personagens.length)];
+
+            // Cria o popup
+            const popup = document.createElement('div');
+            popup.style.position = 'fixed';
+            popup.style.top = '50%';
+            popup.style.left = '50%';
+            popup.style.transform = 'translate(-50%, -50%)';
+            popup.style.background = 'linear-gradient(to right, #7b2d26, #d4af37)';
+            popup.style.border = '2px solid #7b2d26';
+            popup.style.boxShadow = '0 0 15px rgba(123, 45, 38, 0.3)';
+            popup.style.border = '3px solid #d3a625';
+            popup.style.borderRadius = '15px';
+            popup.style.padding = '20px';
+            popup.style.zIndex = '1000';
+            popup.style.boxShadow = '0 0 20px rgba(210, 166, 37, 0.7)';
+            popup.style.maxWidth = '400px';
+            // popup.style.backgroundImage = 'url("eee.jpg")'; // Textura de papel
+            popup.style.textAlign = 'center';
+
+            // Conteúdo do popup com a DICA PRINCIPAL FIXA
+            popup.innerHTML = `
+                <h3 style="color: #7b2d26; margin-top: 0;">${personagem.nome} te dá uma dica:</h3>
+                <img src="img_filme/${personagem.imagem}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 2px solid #d3a625; margin: 10px 0;">
+                <p style="color: #0e1a40; font-style: italic;">"${personagem.frase}"</p>
+                <div style="background-color: #d3a625; padding: 10px; border-radius: 5px; margin: 15px 0;">
+                    <p style="color: #0e1a40; font-weight: bold; margin: 0;">Dica principal:</p>
+                    <p style="color: #7b2d26; font-weight: bold; margin: 5px 0 0 0;">Expresso para o mundo da magia!</p>
+                </div>
+                <button style="background-color: #7b2d26; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Obrigado!</button>
+            `;
+
+            document.body.appendChild(popup);
+
+            // Efeito na Golden Snitch
+            this.style.transform = 'rotate(360deg) scale(1.1)';
+            this.style.transition = 'transform 0.5s';
+
+            // Fechar popup
+            popup.querySelector('button').onclick = function() {
+                document.body.removeChild(popup);
+                golden_snitch.style.transform = 'rotate(0deg) scale(1)';
+            };
+        };
+
+        function pausarMusicaComFade() {
+            const musica = document.getElementById('hogwarts-theme');
+            const fadeDuration = 2000; // 1 segundo para o fade
+            const steps = 10; // Número de reduções de volume
+            const stepTime = fadeDuration / steps;
+            
+            // Se já estiver pausando, não faz nada
+            if (musica.dataset.fadingOut) return;
+            musica.dataset.fadingOut = 'true';
+            
+            const fadeOut = setInterval(() => {
+                if (musica.volume > 0.05) { // Diminui o volume gradualmente
+                    musica.volume -= 0.05;
+                } else {
+                    musica.pause();
+                    musica.volume = 0.3; // Restaura volume padrão para próxima vez
+                    clearInterval(fadeOut);
+                    delete musica.dataset.fadingOut;
+                }
+            }, stepTime);
+        }
+
+        function playMusica() {
+            const musica = document.getElementById('hogwarts-theme');
+            musica.play().catch(error => {
+                console.error("Erro ao reproduzir música:", error);
+                // Adiciona fallback para navegadores que bloqueiam autoplay
+                alert("Clique novamente para ativar a música");
+            });
+        }
+
+
+    </script>
+</body>
+</html>
